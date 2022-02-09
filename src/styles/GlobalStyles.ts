@@ -17,6 +17,8 @@ export default createGlobalStyle `
   }
 
   html {
+    font-family: 'Source Sans Pro', sans-serif;
+
     background: var(--primary);
   }
 
@@ -25,5 +27,6 @@ export default createGlobalStyle `
     --secondary: #406882;
     --main: #6998AB;
     --red: #FF5959;
+    --black: #19282F;
   }
 `;

@@ -1,8 +1,9 @@
 import React from 'react';
 
-import { Container, Main } from './styles';
+import { Container } from './styles';
 
 import { Navbar } from '../../components/navbar/index'
+import { Main } from './main/index';
  
 export function Home() {
 
