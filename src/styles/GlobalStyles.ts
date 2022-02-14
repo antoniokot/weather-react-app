@@ -26,7 +26,7 @@ export default createGlobalStyle `
     --primary: #EEF2FF;
     --secondary: #406882;
     --main: #6998AB;
-    --red: #FF5959;
+    --dark-blue: #03045E;
     --black: #19282F;
   }
 `;

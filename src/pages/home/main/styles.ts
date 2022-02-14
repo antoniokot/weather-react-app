@@ -38,15 +38,20 @@ const iconCSS = css`
   color: var(--primary);
 `;
 
-export const WeatherIcon = styled(Cloudy)`${iconCSS}`;
+export const WeatherIcon = styled(Cloudy)`
+  ${iconCSS}
+`;
 
 export const Description = styled.div`
 
   width: 60%;
-  height: 50%;
+  height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+
+  margin: 0 auto;
 `
 
 export const City = styled.span`
@@ -64,27 +69,49 @@ export const Others = styled.div`
 
   flex: 1;
   display: flex;
-  align-items: center;
+  flex-direction: row;
+
+  margin-top: 1.5em;
 `
-export const Cloudiness = styled.span`
+
+export const Titles = styled.div`
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`
+
+export const Statistics = styled.div`
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`
+
+const span = css`
 
   color: var(--black);
 `
 
-export const Humidity = styled.span`
+export const Cloudiness = styled.span`
+  ${span}
+`
 
-color: var(--black);
+export const Humidity = styled.span`
+  ${span}
 `
 export const Pressure = styled.span`
-
-color: var(--black);
+  ${span}
 `
 export const Wind = styled.span`
-
-color: var(--black);
+  ${span}
 `
 
 export const Title = styled.span`
 
-  color: var(--red)
+  color: var(--primary);
+
+  padding-right: 1em;
 `

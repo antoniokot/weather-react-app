@@ -9,6 +9,8 @@ import {
   City,
   Short,
   Others,
+  Titles,
+  Statistics,
   Cloudiness,
   Humidity,
   Pressure,
@@ -21,9 +23,9 @@ export function Main() {
   return(
     <Container>
       <Left>
-        <WeatherIcon />
 
         <Description>
+          <WeatherIcon />
           <City>Betel</City>
           <Short>Nublado, 28 °C</Short>
         </Description>
@@ -31,22 +33,18 @@ export function Main() {
 
       <Right>
         <Others>
-          <Cloudiness>
-            <Title>Cloudiness</Title>
-            60%
-          </Cloudiness>
-          <Humidity>
-            <Title>Humidity</Title>
-            66%
-          </Humidity>
-          <Pressure>
-            <Title>Pressure</Title>
-            100900 Pa
-          </Pressure>
-          <Wind>
-            <Title>Wind</Title>
-            3,5 m/s
-          </Wind>
+          <Titles>
+            <Title>Cloudiness:</Title>
+            <Title>Humidity:</Title>
+            <Title>Pressure:</Title>
+            <Title>Wind:</Title>
+          </Titles>
+          <Statistics>
+            <Cloudiness>60%</Cloudiness>
+            <Humidity>66%</Humidity>
+            <Pressure>100900 Pa</Pressure>
+            <Wind>3,5 m/s</Wind>
+          </Statistics>
         </Others>
       </Right>
     </Container>
