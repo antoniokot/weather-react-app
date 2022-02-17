@@ -38,7 +38,7 @@ type CityWeather = {
     humidity: number
     visibility: number,
   },
-  cloud: {
+  clouds: {
     all: number,
   },
   dt: number,
@@ -48,9 +48,9 @@ type CityWeather = {
   }
 }
 
-export async function getWeatherByCityName<CityWeather, Error>(url: string) {
+export async function getWeatherByCityName<CityWeather, Error>(url: string | undefined) {
 
-  let response = await api.get("weather?appid=b77e07f479efe92156376a8b07640ced&q="+url);
+  let response = await api.get("weather?appid=b77e07f479efe92156376a8b07640ced&units=metric&q="+url);
 
   if(response.data) { 
     return [response.data, null];

@@ -1,5 +1,7 @@
 import React, { useState, createContext } from 'react';
 
+import { getWeatherByCityName } from '../services/api';
+
 type Weather = {
   id: number,
   main: string,
@@ -34,7 +36,7 @@ type CityWeather = {
     humidity: number
     visibility: number,
   },
-  cloud: {
+  clouds: {
     all: number,
   },
   dt: number,
@@ -45,6 +47,8 @@ type CityWeather = {
 }
 
 interface WeatherContextInterface {
+  cityName: string,
+  setCityName(cityName: string): void, 
   weather: CityWeather | undefined,
   setWeather(weather: CityWeather): void, 
 }
@@ -53,9 +57,12 @@ const WeatherContext = createContext<WeatherContextInterface | null>(null);
 
 function WeatherProvider(props: any) {
 
-  const [weather, setWeather] = useState<CityWeather | undefined>();
+  const [cityName, setCityName] = useState<string>("Campinas");
+  const [weather, setWeather] = useState<CityWeather>();
 
   const weatherContext: WeatherContextInterface = {
+    cityName: cityName,
+    setCityName: setCityName, 
     weather: weather,
     setWeather: setWeather,
   };

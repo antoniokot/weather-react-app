@@ -80,6 +80,12 @@ export const Titles = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
+  > span {  
+    color: var(--primary);
+
+    padding-right: 1em;
+  }
 `
 
 export const Statistics = styled.div`
@@ -88,30 +94,13 @@ export const Statistics = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
+  > span { 
+    color: var(--black);
+  }
 `
 
 const span = css`
 
   color: var(--black);
-`
-
-export const Cloudiness = styled.span`
-  ${span}
-`
-
-export const Humidity = styled.span`
-  ${span}
-`
-export const Pressure = styled.span`
-  ${span}
-`
-export const Wind = styled.span`
-  ${span}
-`
-
-export const Title = styled.span`
-
-  color: var(--primary);
-
-  padding-right: 1em;
 `

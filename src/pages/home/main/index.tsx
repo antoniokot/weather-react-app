@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
+
+import { WeatherContext } from '../../../context/WeatherContext';
 
 import { 
   Container,
@@ -11,14 +13,11 @@ import {
   Others,
   Titles,
   Statistics,
-  Cloudiness,
-  Humidity,
-  Pressure,
-  Wind,
-  Title,
 } from './styles';
 
 export function Main() {
+
+  const weatherContext = useContext(WeatherContext);
 
   return(
     <Container>
@@ -26,24 +25,34 @@ export function Main() {
 
         <Description>
           <WeatherIcon />
-          <City>Betel</City>
-          <Short>Nublado, 28 °C</Short>
+          <City>{weatherContext?.cityName}</City>
+          <Short>
+            {
+              weatherContext?.weather?.weather[0].description}, { 
+              weatherContext?.weather?.main.temp 
+            } °C
+          </Short>
         </Description>
       </Left>
 
       <Right>
         <Others>
           <Titles>
-            <Title>Cloudiness:</Title>
-            <Title>Humidity:</Title>
-            <Title>Pressure:</Title>
-            <Title>Wind:</Title>
+            <span>Cloudiness:</span>
+            <span>Humidity:</span>
+            <span>Pressure:</span>
+            <span>Wind:</span>
           </Titles>
           <Statistics>
-            <Cloudiness>60%</Cloudiness>
-            <Humidity>66%</Humidity>
-            <Pressure>100900 Pa</Pressure>
-            <Wind>3,5 m/s</Wind>
+            <span>{ weatherContext?.weather?.clouds.all }%</span>
+            <span>66%</span>
+            <span>
+              { 
+                weatherContext?.weather?.main.pressure ? 
+                weatherContext?.weather?.main.pressure * 100 : ""
+              } Pa
+            </span>
+            <span>{ weatherContext?.weather?.wind.speed } m/s</span>
           </Statistics>
         </Others>
       </Right>

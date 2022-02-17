@@ -8,15 +8,19 @@ import { getWeatherByCityName } from '../../services/api';
 
 export function Navbar() {
 
-  const [cityName, setCityName] = useState<string>("Campinas");
+  
   const weatherContext = useContext(WeatherContext);
+
+  useEffect(() => {
+    getCityWeather()
+  }, [])
  
   function handleOnChangeCityName(event: any) {
-    setCityName(event.target.value);
+    weatherContext?.setCityName(event.target.value);
   }
 
   async function getCityWeather() {
-    let [weather, err] = await getWeatherByCityName(cityName);
+    let [weather, err] = await getWeatherByCityName(weatherContext?.cityName);
 
     if(!weather) {
       console.log(err);
@@ -29,7 +33,7 @@ export function Navbar() {
     <Nav>
       <SearchBar
         type="text"
-        value={cityName}
+        value={weatherContext?.cityName}
         onChange={handleOnChangeCityName}
         onMouseOut={getCityWeather}
         placeholder="Find the wanted city"
