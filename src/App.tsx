@@ -1,18 +1,20 @@
 import React from 'react';
 
-import './App.css';
-
 import GlobalStyles from './styles/GlobalStyles';
+
+import { WeatherProvider } from './context/WeatherContext';
 
 import { Home } from './pages/home/index';
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-      
-      <GlobalStyles />
-    </div>
+    <WeatherProvider>
+      <div className="App">
+        <Home />
+        
+        <GlobalStyles />
+      </div>
+    </WeatherProvider>
   );
 }
 
