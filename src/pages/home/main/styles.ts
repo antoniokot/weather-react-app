@@ -44,7 +44,7 @@ export const WeatherIcon = styled(Cloudy)`
 
 export const Description = styled.div`
 
-  width: 60%;
+  width: 85%;
   height: 100%;
   flex: 1;
   display: flex;
@@ -81,7 +81,8 @@ export const Titles = styled.div`
   flex-direction: column;
   align-items: flex-end;
 
-  > span {  
+  > span {
+    font-size: 1.2em;
     color: var(--primary);
 
     padding-right: 1em;
@@ -95,12 +96,8 @@ export const Statistics = styled.div`
   flex-direction: column;
   align-items: flex-start;
 
-  > span { 
+  > span {
+    font-size: 1.2em;
     color: var(--black);
   }
-`
-
-const span = css`
-
-  color: var(--black);
 `

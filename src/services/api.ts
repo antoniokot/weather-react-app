@@ -48,9 +48,14 @@ type CityWeather = {
   }
 }
 
-export async function getWeatherByCityName<CityWeather, Error>(url: string | undefined) {
+export async function getWeatherByCityName<CityWeather, Error>(url: string | "") {
 
-  let response = await api.get("weather?appid=b77e07f479efe92156376a8b07640ced&units=metric&q="+url);
+  let city = "Campinas"
+
+  if(url !== "")
+    city = url
+
+  let response = await api.get("weather?appid=b77e07f479efe92156376a8b07640ced&units=metric&q="+city);
 
   if(response.data) { 
     return [response.data, null];

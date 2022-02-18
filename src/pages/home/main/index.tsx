@@ -25,11 +25,13 @@ export function Main() {
 
         <Description>
           <WeatherIcon />
-          <City>{weatherContext?.cityName}</City>
+          <City>{weatherContext?.cityName ? weatherContext?.cityName : "Campinas"}</City>
           <Short>
             {
               weatherContext?.weather?.weather[0].description}, { 
-              weatherContext?.weather?.main.temp 
+                weatherContext?.weather?.main.temp ? 
+                (Math.round(weatherContext?.weather?.main.temp  * 100) / 100).toFixed(1) : 
+                ""
             } °C
           </Short>
         </Description>
@@ -45,14 +47,20 @@ export function Main() {
           </Titles>
           <Statistics>
             <span>{ weatherContext?.weather?.clouds.all }%</span>
-            <span>66%</span>
+            <span>{ weatherContext?.weather?.main.humidity }%</span>
             <span>
               { 
                 weatherContext?.weather?.main.pressure ? 
                 weatherContext?.weather?.main.pressure * 100 : ""
               } Pa
             </span>
-            <span>{ weatherContext?.weather?.wind.speed } m/s</span>
+            <span>
+              { 
+                weatherContext?.weather?.wind.speed ?
+                (Math.round(weatherContext?.weather?.wind.speed  * 100) / 100).toFixed(1) : 
+                  ""
+              } m/s
+            </span>
           </Statistics>
         </Others>
       </Right>

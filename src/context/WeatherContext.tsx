@@ -1,7 +1,5 @@
 import React, { useState, createContext } from 'react';
 
-import { getWeatherByCityName } from '../services/api';
-
 type Weather = {
   id: number,
   main: string,
